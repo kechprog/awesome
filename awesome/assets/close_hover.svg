@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6144" height="6144" viewBox="0 0 6144 6144">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ed8796;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-linejoin: round;
+        stroke-width: 200px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <circle id="Эллипс_1" data-name="Эллипс 1" class="cls-1" cx="3071.999" cy="3071.939" r="3071.561"/>
+  <path id="Линия_1" data-name="Линия 1" class="cls-2" d="M4139.02,2004.94L2003.92,4140Zm1.06,2134L2004.98,2003.88Z"/>
+</svg>

@@ -1,0 +1,132 @@
+* {
+    modi:                       "drun,run,filebrowser";
+    show-icons:                 false;
+    display-drun:               " Apps";
+    display-run:                " Run";
+    display-filebrowser:        " Files";
+    display-window:             " Windows";
+	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	window-format:              "{w} · {c} · {t}";
+		
+    Rosewater: 	#f4dbd6;
+	Flamingo: 	#f0c6c6;
+	Pink: 	    #f5bde6;
+	Mauve: 	    #c6a0f6;
+	Red: 	    #ed8796;
+	Maroon: 	#ee99a0;
+	Peach: 	    #f5a97f;
+	Yellow: 	#eed49f;
+	Green: 	    #a6da95;
+	Teal: 	    #8bd5ca;
+	Sky: 	    #91d7e3;
+	Sapphire: 	#7dc4e4;
+	Blue: 	    #8aadf4;
+	Lavender: 	#b7bdf8;
+	Text: 	    #cad3f5;
+	Subtext1: 	#b8c0e0;
+	Subtext0: 	#a5adcb;
+	Overlay2: 	#939ab7;
+	Overlay1: 	#8087a2;
+	Overlay0: 	#6e738d;
+	Surface2: 	#5b6078;
+	Surface1: 	#494d64;
+	Surface0: 	#363a4f;
+	Base: 	    #24273a;
+	Mantle: 	#1e2030;
+	Crust: 	    #181926;
+
+    width: 500;
+    height: 311;
+    font: "Caskaydia Cove Nerd Font 16";
+	text-color:					 @Text;
+}
+
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "";
+}
+
+// TODO THE REST OF THE DESIGN AND SHIT AND EVERYTHING.
+window {
+	/* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+	/* properties for all widgets */
+    cursor:                      "default";
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      3px solid;
+    border-radius:               12px;
+    border-color:                @Yellow;
+	text-color:					 inherit;
+    background-color:            @Base;
+}
+
+
+/******************************/
+/*****----- Main Box -----*****/
+/******************************/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:				 0px;
+    border-color:                @Base;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview"];
+}
+
+
+/******************************/
+/*****----- Inputbar -----*****/
+/******************************/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+	margin:                      9px 9px 5px 9px;                  
+    padding:                     4px;
+    border:                      2px solid;
+    border-radius:               7px;
+    border-color:                @Blue;
+    background-color:            transparent;
+    text-color:                  @Text;
+    children:                    ["prompt", "entry" ];
+}
+prompt {
+    enabled:                     true;
+    background-color:            inherit;
+    text-color:                  inherit;
+    padding:                     4px 12px 4px 6px;
+    border-radius:               7px;
+    text-color:                  @Base;
+    background-color:            @Teal;
+}
+entry {
+    enabled:                     true;
+    background-color:            @Base;
+    text-color:                  @Text;
+    cursor:                      text;
+    placeholder:                 "search...";
+    placeholder-color:           inherit;
+    align:                       center;
+}
+
+/******************************/
+/*****----- Listview -----*****/
+/******************************/
+element, element-text, element-icon {
+    border:           0px solid;
+    padding:          4px; 
+    background-color: @Base;
+    text-color:       @Text;
+}
