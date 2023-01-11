@@ -24,3 +24,5 @@ xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 .gsd-keyboard.settings-ported
 background
 QtProject.conf
+gtk*
+light
