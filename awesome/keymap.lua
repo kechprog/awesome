@@ -3,7 +3,7 @@ local gears         = require("gears")
 local awful         = require("awful")
 local menubar       = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local switcher      = require("awesome-switcher")
+local switcher      = require("switcher_init")
 local func_keys     = require("func_keys")
 local helpers       = require("helpers")
 

@@ -1,4 +1,4 @@
-local switcher = require("awesome-switcher")
+local switcher = require("switcher_init")
 
 switcher.settings.preview_box                        = true                          -- display preview-box
 switcher.settings.preview_box_bg                     = "#181926ff"                   -- background color
