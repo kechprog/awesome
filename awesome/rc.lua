@@ -43,5 +43,5 @@ require 'callbacks'
 require 'clients'
 require 'keymap'
 require 'switcher'
-
+require 'restore_floating_pos'
 

@@ -65,6 +65,8 @@ local GLOBALKEYS = gears.table.join(
   awful.key({}, "XF86TouchpadToggle", func_keys.toggle_touchpad,
     { description = "focus right", group = "awesome" }),
 
+  awful.key({}, "XF86Calculator ", func_keys.toggle_touchpad,
+    { description = "focus right", group = "awesome" }),
 
   ------------------------------------------------------------------------
   --                                APPS                                --
