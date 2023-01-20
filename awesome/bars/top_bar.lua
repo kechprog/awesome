@@ -42,36 +42,9 @@ local taglist_buttons = gears.table.join(
   awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
-local tasklist_buttons = gears.table.join(
-  awful.button({}, 1, function(c)
-    if c == client.focus then
-      c.minimized = true
-    else
-      c:emit_signal(
-        "request::activate",
-        "tasklist",
-        { raise = true }
-      )
-    end
-  end),
-  awful.button({}, 3, function()
-    awful.menu.client_list({ theme = { width = 250 } })
-  end),
-  awful.button({}, 4, function()
-    awful.client.focus.byidx(1)
-  end),
-  awful.button({}, 5, function()
-    awful.client.focus.byidx(-1)
-  end)
-)
-
-
-
 awful.screen.connect_for_each_screen(function(s)
   -- Each screen has its own tag table.
   awful.tag({ "1", "2", "3", "4", "5" }, s, awful.layout.layouts[0])
-
-
 
   -- widget with all tags
   s.mytaglist = awful.widget.taglist {
@@ -80,15 +53,27 @@ awful.screen.connect_for_each_screen(function(s)
     buttons = taglist_buttons
   }
 
-  -- widget with all application running
-  s.mytasklist = awful.widget.tasklist {
-    screen  = s,
-    filter  = awful.widget.tasklist.filter.currenttags,
-    buttons = tasklist_buttons
+  -- clock widget
+  local mytextclock = wibox.widget.textclock()
+  local cal_wid = require("widgets.calendar.calendar")
+  local cw = cal_wid {
+    theme = 'catppuccin',
+    placement = 'top',
+    start_sunday = false,
+    radius = 8,
+    previous_month_button = 1,
+    next_month_button = 3,
   }
+  mytextclock:connect_signal("button::press",
+    function(_, _, _, button)
+      if button == 1 then cw.toggle() end
+    end)
+
+
+
 
   -- battery widget
-  local battery_widget = require("battery-widget")
+  local battery_widget = require("widgets.battery-widget")
   local BAT0 = battery_widget {
     ac = "AC",
     adapter = "BATT",
@@ -96,9 +81,9 @@ awful.screen.connect_for_each_screen(function(s)
     ac_prefix = "",
     battery_prefix = "",
     percent_colors = {
-      { 15, "#ed8796" },
-      { 40, "#eed49f" },
-      { 999, "#a6da95" },
+      { 15, "#ed8796"},
+      { 40, "#eed49f"},
+      { 999,"#a6da95"},
     },
     listen = true,
     timeout = 10,
@@ -111,8 +96,7 @@ awful.screen.connect_for_each_screen(function(s)
     alert_text = "${AC_BAT}${time_est}"
   }
 
-  -- clock widget
-  local mytextclock = wibox.widget.textclock()
+
 
   -- layout widget
   s.mylayoutbox = awful.widget.layoutbox(s)
@@ -144,8 +128,7 @@ awful.screen.connect_for_each_screen(function(s)
   }
 
   -- Create an actual bar
-  s.mywibox = awful.wibar({ position = "top", screen = s })
-  s.mywibox:setup {
+  s.mywibox = awful.wibar({ position = "top", screen = s }):setup {
     layout = wibox.layout.align.horizontal,
 
     { -- Left widgets
@@ -155,7 +138,13 @@ awful.screen.connect_for_each_screen(function(s)
       s.mytaglist,
     },
 
-    s.mytasklist, -- Middle widget
+    { -- Middle widget, textclock aligned to the center
+      layout = wibox.layout.align.horizontal,
+      expand = "none",
+      nil,
+      mytextclock,
+      nil,
+    },
 
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
@@ -163,7 +152,6 @@ awful.screen.connect_for_each_screen(function(s)
       wibox.widget.systray(), -- god knows what is it.
       s.brightness_progressbar,
       BAT0,
-      mytextclock,
       s.mylayoutbox,
       -- control_mission,
     },

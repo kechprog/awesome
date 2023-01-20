@@ -2,7 +2,7 @@ BraveSoftware/Brave-Browser
 Code
 Thunar
 dconf
-gtk-2.0/gtkfilechooser.ini
+gtk-2.0
 lazygit
 lvim
 neofetch
@@ -24,5 +24,11 @@ xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 .gsd-keyboard.settings-ported
 background
 QtProject.conf
-gtk*
 light
+htop/htoprc
+jgit/config
+libreoffice*
+octave*
+xfce*
+kactivitymanagerdrc
+kglobalshortcutsrc

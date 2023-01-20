@@ -11,4 +11,4 @@ xinput set-prop 15 293 -0.35 &
 
 # init
 echo "Init.."
-# xautolock -time 20 -locker ~/.config/awesome/lock.sh &
+# xautolock -time 20 -locker ~/.config/awesome/scripts/lock.sh
