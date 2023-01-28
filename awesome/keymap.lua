@@ -84,9 +84,6 @@ local GLOBALKEYS = gears.table.join(
   awful.key({ MODKEY, "Shift" }, "e", awesome.quit,
     { description = "quit awesome", group = "awesome" }),
 
-  awful.key({ MODKEY, "Shift" }, "space", function() awful.layout.inc(-1) end,
-    { description = "select previous", group = "layout" }),
-
   -- Prompt
   awful.key({ MODKEY }, "space", function() awful.spawn.with_shell("rofi -show drun") end,
     { description = "run prompt", group = "launcher" }),
